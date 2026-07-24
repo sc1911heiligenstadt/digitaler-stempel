@@ -64,8 +64,11 @@ function fmtDate(iso) {
 let currentUsername = null;
 let currentIsAdmin = false;
 let currentCanEdit = false;
+let currentCanAdmin = false;
 
 function canEdit() { return currentIsAdmin || currentCanEdit; }
+// Administrieren-Ebene: das Archiv (alle Stempelungen) ist Administratoren vorbehalten (2026-07-24).
+function canAdmin() { return currentIsAdmin || currentCanAdmin; }
 let currentVorname = null;
 let currentNachname = null;
 let appData = { documents: [], stampImages: [] };
@@ -1120,24 +1123,33 @@ async function init() {
     currentUsername = me.username;
     currentIsAdmin = !!me.isAdmin;
     currentCanEdit = !!me.canEdit;
+    currentCanAdmin = !!me.canAdmin;
     currentVorname = me.vorname || null;
     currentNachname = me.nachname || null;
     appData = data && typeof data === 'object' ? data : { documents: [] };
     if (!Array.isArray(appData.documents)) appData.documents = [];
     if (!Array.isArray(appData.stampImages)) appData.stampImages = [];
     startApp();
-    // Nur-Seher: Stempeln (Dokument stempeln + Stempelbilder hinzufügen) ist jetzt
-    // Bearbeitern vorbehalten (Sehen = absolut nichts editierbar, 2026-07-24 2. Runde;
-    // serverseitig via WRITE_REQUIRES_EDIT_PERMISSION). Nur Archiv (eigene Dokumente) + Info.
+    // Rechte-Ebenen (2026-07-24): Stempeln = Bearbeiten (linker Arbeits-Tab), Archiv (alle
+    // Stempelungen) = Administrieren (rechts, von Michel so entschieden), Info = alle.
+    // Administrieren schließt serverseitig Bearbeiten ein (canAdmin ⇒ canEdit).
+    const stBtn = document.querySelector('[data-tab="stempeln"]');
+    const stSec = document.getElementById('tab-stempeln');
+    const arBtn = document.getElementById('nav-archiv');
+    const arSec = document.getElementById('tab-archiv');
+    // Archiv nur mit Administrieren-Recht.
+    if (!canAdmin()) {
+      if (arBtn) { arBtn.style.display = 'none'; arBtn.classList.remove('active'); }
+      if (arSec) arSec.classList.remove('active');
+    }
+    // Stempeln nur mit Bearbeiten-Recht; hat jemand weder Stempeln noch Archiv, bleibt Info.
     if (!canEdit()) {
-      const stBtn = document.querySelector('[data-tab="stempeln"]');
-      const stSec = document.getElementById('tab-stempeln');
-      const arBtn = document.getElementById('nav-archiv');
-      const arSec = document.getElementById('tab-archiv');
       if (stBtn) { stBtn.style.display = 'none'; stBtn.classList.remove('active'); }
       if (stSec) stSec.classList.remove('active');
-      if (arBtn) arBtn.classList.add('active');
-      if (arSec) arSec.classList.add('active');
+      const infoBtn = document.querySelector('[data-tab="info"]');
+      const infoSec = document.getElementById('tab-info');
+      if (infoBtn) infoBtn.classList.add('active');
+      if (infoSec) infoSec.classList.add('active');
     }
   } catch (e) {
     if (e instanceof NotLoggedInError) {
