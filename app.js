@@ -1126,6 +1126,19 @@ async function init() {
     if (!Array.isArray(appData.documents)) appData.documents = [];
     if (!Array.isArray(appData.stampImages)) appData.stampImages = [];
     startApp();
+    // Nur-Seher: Stempeln (Dokument stempeln + Stempelbilder hinzufügen) ist jetzt
+    // Bearbeitern vorbehalten (Sehen = absolut nichts editierbar, 2026-07-24 2. Runde;
+    // serverseitig via WRITE_REQUIRES_EDIT_PERMISSION). Nur Archiv (eigene Dokumente) + Info.
+    if (!canEdit()) {
+      const stBtn = document.querySelector('[data-tab="stempeln"]');
+      const stSec = document.getElementById('tab-stempeln');
+      const arBtn = document.getElementById('nav-archiv');
+      const arSec = document.getElementById('tab-archiv');
+      if (stBtn) { stBtn.style.display = 'none'; stBtn.classList.remove('active'); }
+      if (stSec) stSec.classList.remove('active');
+      if (arBtn) arBtn.classList.add('active');
+      if (arSec) arSec.classList.add('active');
+    }
   } catch (e) {
     if (e instanceof NotLoggedInError) {
       showConnectScreen();

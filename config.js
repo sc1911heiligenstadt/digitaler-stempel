@@ -11,6 +11,7 @@ const APP_CHANGELOG = [
         title: "Digitaler Stempel",
         items: [
           "PDF hochladen, Stempel-Bild frei positionieren, skalieren, drehen und in der Deckkraft anpassen — anwendbar auf alle, nur die aktuelle oder bestimmte ausgewählte Seiten.",
+          "Wer das Tool nur sehen darf (kein Bearbeiten-Recht), sieht den Stempeln-Tab nicht mehr und landet direkt im Archiv — Stempeln setzt jetzt Bearbeiten-Recht voraus (auch serverseitig).",
           "Neben PDF kann auch eine Word-Datei (.docx) gestempelt werden: Ergebnis bleibt eine bearbeitbare .docx-Datei mit direkt eingebettetem Stempelbild (frei positionierbar, drehbar, Deckkraft einstellbar). Bei Word gibt es nur „Alle Seiten“ (Stempel in der Kopfzeile, wiederholt sich automatisch) oder „Nur erste Seite“.",
           "Geteilte Stempelbild-Bibliothek: Stempelbilder werden einmalig mit Namen hinterlegt (PNG mit transparentem Hintergrund empfohlen, auch JPG möglich) — beim Stempeln reicht danach ein Klick auf den Namen statt jedes Mal eine Datei auszuwählen. Hinzufügen kann jeder berechtigte Nutzer, Löschen ist Admins und Bearbeiter-Gruppen vorbehalten.",
           "Jedes gestempelte Dokument wird automatisch im Vereins-Archiv abgelegt: wer es gestempelt hat und wann, sowie wer es wann heruntergeladen hat. Admins und Bearbeiter-Gruppen sehen das komplette Archiv aller Nutzer und können einzelne Dokumente löschen; alle anderen sehen dort nur die eigenen gestempelten Dokumente.",
