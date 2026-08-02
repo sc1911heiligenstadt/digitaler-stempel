@@ -5,29 +5,63 @@ const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB
 
 const APP_CHANGELOG = [
   {
-    version: "1.1",
-    groups: [
-      {
-        title: "Bedienung am Handy",
-        items: [
-          "Die Tab-Leiste bricht am Handy jetzt um, statt seitlich aus dem Bild zu laufen. Vorher waren die hinteren Tabs auf schmalen Bildschirmen nicht erreichbar.",
-          "Eingabefelder sind am Handy mindestens 16 Pixel groß. Dadurch zoomt der iPhone-Browser beim Antippen eines Feldes nicht mehr ungefragt in die Seite hinein und bleibt danach verschoben stehen."
-        ]
-      }
-    ]
-  },
-  {
     version: "1.0",
     groups: [
       {
-        title: "Digitaler Stempel",
+        title: "Stempeln",
         items: [
-          "PDF hochladen, Stempel-Bild frei positionieren, skalieren, drehen und in der Deckkraft anpassen — anwendbar auf alle, nur die aktuelle oder bestimmte ausgewählte Seiten.",
-          "Wer das Tool nur sehen darf (kein Bearbeiten-Recht), sieht den Stempeln-Tab nicht mehr und landet direkt im Archiv — Stempeln setzt jetzt Bearbeiten-Recht voraus (auch serverseitig).",
-          "Neben PDF kann auch eine Word-Datei (.docx) gestempelt werden: Ergebnis bleibt eine bearbeitbare .docx-Datei mit direkt eingebettetem Stempelbild (frei positionierbar, drehbar, Deckkraft einstellbar). Bei Word gibt es nur „Alle Seiten“ (Stempel in der Kopfzeile, wiederholt sich automatisch) oder „Nur erste Seite“.",
-          "Geteilte Stempelbild-Bibliothek: Stempelbilder werden einmalig mit Namen hinterlegt (PNG mit transparentem Hintergrund empfohlen, auch JPG möglich) — beim Stempeln reicht danach ein Klick auf den Namen statt jedes Mal eine Datei auszuwählen. Hinzufügen kann jeder berechtigte Nutzer, Löschen ist Admins und Bearbeiter-Gruppen vorbehalten.",
-          "Jedes gestempelte Dokument wird automatisch im Vereins-Archiv abgelegt: wer es gestempelt hat und wann, sowie wer es wann heruntergeladen hat. Admins und Bearbeiter-Gruppen sehen das komplette Archiv aller Nutzer und können einzelne Dokumente löschen; alle anderen sehen dort nur die eigenen gestempelten Dokumente.",
-          "Nur für berechtigte Nutzer sichtbar — Anmeldung über die Tools-Übersicht."
+          "PDF hochladen und das Stempelbild frei setzen: Position, Größe, Drehung und Deckkraft sind einstellbar.",
+          "Beim PDF lässt sich wählen, ob der Stempel auf alle Seiten, nur auf die aktuelle oder auf eine selbst zusammengestellte Auswahl kommt.",
+          "Auch Word-Dateien lassen sich stempeln. Das Ergebnis bleibt eine bearbeitbare Word-Datei mit eingebettetem Stempelbild — kein Bild-Export.",
+          "Bei Word gibt es nur „Alle Seiten“ oder „Nur erste Seite“: der Stempel sitzt dort in der Kopfzeile und wiederholt sich dadurch von selbst. Eine Word-Datei hat keine festen Seiten, die sich einzeln ansprechen ließen."
+        ]
+      },
+      {
+        title: "Stempelbilder",
+        items: [
+          "Die Stempelbilder liegen in einer gemeinsamen Sammlung und werden einmalig mit Namen hinterlegt — danach genügt beim Stempeln ein Klick auf den Namen.",
+          "Empfohlen ist ein PNG mit durchsichtigem Hintergrund; JPG geht auch.",
+          "Ein Bild hinzufügen darf jeder mit Zugriff auf das Werkzeug, löschen nur Bearbeiter."
+        ]
+      },
+      {
+        title: "Archiv",
+        items: [
+          "Jedes gestempelte Dokument wird im Vereins-Archiv abgelegt: wer es gestempelt hat und wann, dazu wer es wann heruntergeladen hat.",
+          "Bearbeiter sehen das komplette Archiv aller Nutzer und können einzelne Dokumente löschen.",
+          "Alle anderen sehen dort ausschließlich ihre eigenen Dokumente."
+        ]
+      },
+      {
+        title: "Wer darf was",
+        items: [
+          "Das Werkzeug ist nur für die freigegebene Gruppe sichtbar.",
+          "Sehen: das eigene Archiv. Der Reiter „Stempeln“ erscheint gar nicht erst, der Einstieg führt direkt ins Archiv.",
+          "Bearbeiten: stempeln, Stempelbilder löschen, das gesamte Archiv einsehen und daraus löschen.",
+          "Der Reiter „Info“ ist für alle sichtbar."
+        ]
+      },
+      {
+        title: "Was der Stempel nicht ist",
+        items: [
+          "Der Stempel wird in das Dokument gezeichnet. Er ist eine Kennzeichnung und keine kryptografische Signatur — er beweist nichts über Echtheit oder Unverändertheit des Dokuments.",
+          "Wer eine an eine Person gebundene Unterschrift braucht, nutzt „Unterschriften anfordern“ in der Kopfzeile der Tools-Übersicht."
+        ]
+      },
+      {
+        title: "Bedienung am Handy",
+        items: [
+          "Die Reiterleiste bricht am Handy um, statt seitlich aus dem Bild zu laufen — auch die hinteren Reiter sind auf schmalen Bildschirmen erreichbar.",
+          "Eingabefelder sind mindestens 16 Pixel groß, damit der iPhone-Browser beim Antippen nicht ungefragt in die Seite hineinzoomt und verschoben stehen bleibt.",
+          "Das Positionieren des Stempels läuft über Ziehen und Anfasser und ist mit dem Finger unhandlich — dafür ist ein Rechner die bessere Wahl."
+        ]
+      },
+      {
+        title: "Daten & Speicherung",
+        items: [
+          "Gespeichert wird in der Vereins-Nextcloud über die zentrale Anmeldung der Tools-Übersicht — ein eigenes Passwort braucht es nicht.",
+          "Die Dokumente selbst liegen als einzelne Dateien, nicht in der Datenliste; darin stehen nur die Angaben dazu.",
+          "Das Werkzeug lädt vier Hilfsbibliotheken aus dem Netz nach und funktioniert deshalb nicht ohne Internetverbindung."
         ]
       }
     ]
