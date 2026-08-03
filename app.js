@@ -1086,11 +1086,6 @@ function setupTabs() {
     btn.addEventListener('click', () => activateTab(btn.dataset.tab));
   });
 
-  const versionBadgeHeader = document.getElementById('version-badge');
-  versionBadgeHeader.addEventListener('click', () => activateTab('info'));
-  versionBadgeHeader.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateTab('info'); }
-  });
 }
 
 function showConnectScreen(errorMsg) {
@@ -1102,7 +1097,6 @@ function showConnectScreen(errorMsg) {
 function startApp() {
   document.getElementById('connect-screen').style.display = 'none';
   document.getElementById('app-shell').style.display = '';
-  document.getElementById('version-badge').textContent = 'v' + APP_VERSION;
   document.getElementById('version-badge-2').textContent = 'v' + APP_VERSION;
   renderHeaderUser();
   renderChangelog();
