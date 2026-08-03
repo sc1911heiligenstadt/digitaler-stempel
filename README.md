@@ -2,9 +2,9 @@
 
 Web-App des **1. SC 1911 e.V. Heilbad Heiligenstadt** zum digitalen Stempeln von
 PDF-Dokumenten und Bildern — direkt im Browser, ohne Umweg über Drucker/Scanner.
-Teil der [Tools-Übersicht](https://tecko1985.github.io/ToolsUebersicht/).
+Teil der [Tools-Übersicht](https://sc1911heiligenstadt.github.io/ToolsUebersicht/).
 
-**Live:** https://tecko1985.github.io/digitaler-stempel/
+**Live:** https://sc1911heiligenstadt.github.io/digitaler-stempel/
 
 ## Funktionen
 
