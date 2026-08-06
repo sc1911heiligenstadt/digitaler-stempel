@@ -1,44 +1,23 @@
-# Digitaler Stempel (v1.0)
+# 🖋️ Digitaler Stempel
 
-Web-App des **1. SC 1911 e.V. Heilbad Heiligenstadt** zum digitalen Stempeln von
-PDF-Dokumenten und Bildern — direkt im Browser, ohne Umweg über Drucker/Scanner.
-Teil der [Tools-Übersicht](https://sc1911heiligenstadt.github.io/ToolsUebersicht/).
+PDF- und Word-Dokumente digital stempeln (Position, Größe, Drehung und Deckkraft frei wählbar) — jede Stempelung wird mit Nutzer und Zeitpunkt archiviert (nur für berechtigte Gruppe).
 
-**Live:** https://sc1911heiligenstadt.github.io/digitaler-stempel/
+**➡️ [Digitaler Stempel öffnen](https://sc1911heiligenstadt.github.io/digitaler-stempel/)**
 
-## Funktionen
+## Zugang
 
-- **Stempeln** — PDF hochladen, Stempel-Bild frei positionieren, skalieren, drehen
-  und in der Deckkraft anpassen. Anwendbar auf alle Seiten, nur die aktuelle Seite
-  oder bestimmte ausgewählte Seiten.
-- **Word-Dateien (.docx) stempeln** — alternativ zu PDF auch eine Word-Datei
-  hochladen; das Ergebnis bleibt eine bearbeitbare .docx-Datei mit eingebettetem
-  Stempelbild. Bei Word nur „Alle Seiten“ (Kopfzeile, wiederholt sich automatisch)
-  oder „Nur erste Seite“ wählbar.
-- **Stempelbild-Bibliothek** — Stempelbilder werden einmalig mit Namen hinterlegt
-  (PNG mit transparentem Hintergrund empfohlen, auch JPG möglich). Beim Stempeln
-  reicht danach ein Klick auf den Namen statt jedes Mal eine Datei auszuwählen.
-  Hinzufügen kann jeder berechtigte Nutzer, Löschen ist Admins und
-  Bearbeiter-Gruppen vorbehalten.
-- **Archiv & Audit-Trail** — jedes gestempelte Dokument wird automatisch im
-  Vereins-Archiv abgelegt: wer es gestempelt hat und wann, sowie wer es wann
-  heruntergeladen hat. Admins und Bearbeiter-Gruppen sehen das komplette Archiv
-  aller Nutzer und können einzelne Dokumente löschen; alle anderen sehen dort
-  nur die eigenen gestempelten Dokumente.
-- **Zugriff** — nur für berechtigte Nutzer sichtbar, Anmeldung über die
-  Tools-Übersicht.
+Die Anmeldung läuft über die [Tools-Übersicht](https://sc1911heiligenstadt.github.io/ToolsUebersicht/) — dort einmal anmelden, danach ist dieses Werkzeug offen.
 
-## Technik
-
-Vanilla-JS-App (kein Build-Step). PDF-Rendering/-Bearbeitung clientseitig über
-[pdf.js](https://mozilla.github.io/pdf.js/) (Anzeige) und
-[pdf-lib](https://pdf-lib.js.org/) (Stempel einbetten, neues PDF erzeugen).
-Anmeldung, Stempelbild-Bibliothek und Archiv laufen über das zentrale
-ToolsUebersicht-Login-Gateway (`db.js`), das die Dateien serverseitig per WebDAV
-in der Vereins-Nextcloud ablegt — kein separates Passwort im Client.
-
-- `index.html`, `app.js`, `db.js`, `config.js`, `style.css` — die App
+Die Rechte gelten in drei Stufen: **Sehen** (nur ansehen), **Bearbeiten** (Einträge pflegen) und **Administrieren** (Einstellungen und Verwaltung). Wer welche Stufe hat, legt die Tools-Übersicht fest.
 
 ## Lokal starten
 
-`E:\.claude\launch.json` → Eintrag `digitaler-stempel` (Port 8794).
+Über den Eintrag `digitaler-stempel` in `E:\.claude\launch.json` — der Server läuft dann auf `http://localhost:8794/`.
+
+## Technik
+
+Vanilla JavaScript ohne Build-Schritt — die Dateien werden so ausgeliefert, wie sie im Repo liegen. Veröffentlicht über GitHub Pages. Die Daten liegen in der Vereins-Nextcloud; der Zugriff läuft ausschließlich über den Login-Worker der Tools-Übersicht, nie mit Zugangsdaten im Browser.
+
+---
+
+Ein Werkzeug des 1. SC 1911 Heiligenstadt. Alle Werkzeuge auf einen Blick: [Tools-Übersicht](https://sc1911heiligenstadt.github.io/ToolsUebersicht/) · Erklärungen im [Toolbox Wiki](https://sc1911heiligenstadt.github.io/Vereinswiki/).
