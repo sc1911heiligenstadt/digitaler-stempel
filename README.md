@@ -1,14 +1,32 @@
-# 🖋️ Digitaler Stempel
+# 🔴 Digitaler Stempel
 
-PDF- und Word-Dokumente digital stempeln (Position, Größe, Drehung und Deckkraft frei wählbar) — jede Stempelung wird mit Nutzer und Zeitpunkt archiviert (nur für berechtigte Gruppe).
+Den Vereinsstempel auf ein Dokument setzen, ohne es auszudrucken. PDF oder Word
+(.docx) hochladen, Stempel per Maus an die richtige Stelle ziehen, fertiges
+Dokument herunterladen — jede Stempelung landet dabei im Vereins-Archiv.
 
-**➡️ [Digitaler Stempel öffnen](https://sc1911heiligenstadt.github.io/digitaler-stempel/)**
+**➡️ [Digitalen Stempel öffnen](https://sc1911heiligenstadt.github.io/digitaler-stempel/)**
+
+## Was drin ist
+
+| Reiter | Wofür |
+|---|---|
+| **Stempeln** | Dokument wählen (PDF oder Word), Stempel-Bild auswählen, mit der Maus platzieren, erzeugen |
+| **Archiv** | Jede Stempelung als Nachweis: was wurde wann von wem gestempelt |
+
+## Warum das Archiv
+
+Ein Stempel ist eine Erklärung des Vereins. Deshalb wird jede Stempelung
+festgehalten — nicht um jemanden zu kontrollieren, sondern damit später
+nachvollziehbar bleibt, dass ein Dokument tatsächlich vom Verein kommt.
 
 ## Zugang
 
 Die Anmeldung läuft über die [Tools-Übersicht](https://sc1911heiligenstadt.github.io/ToolsUebersicht/) — dort einmal anmelden, danach ist dieses Werkzeug offen.
 
-Die Rechte gelten in drei Stufen: **Sehen** (nur ansehen), **Bearbeiten** (Einträge pflegen) und **Administrieren** (Einstellungen und Verwaltung). Wer welche Stufe hat, legt die Tools-Übersicht fest.
+Der Stempel ist **nur für berechtigte Nutzer** freigeschaltet — wer stempeln
+darf, legt die Tools-Übersicht fest. Die Rechte gelten in drei Stufen: **Sehen**
+(Archiv einsehen), **Bearbeiten** (stempeln) und **Administrieren**
+(Stempel-Bilder pflegen).
 
 ## Lokal starten
 
@@ -17,6 +35,9 @@ Die Rechte gelten in drei Stufen: **Sehen** (nur ansehen), **Bearbeiten** (Eintr
 ## Technik
 
 Vanilla JavaScript ohne Build-Schritt — die Dateien werden so ausgeliefert, wie sie im Repo liegen. Veröffentlicht über GitHub Pages. Die Daten liegen in der Vereins-Nextcloud; der Zugriff läuft ausschließlich über den Login-Worker der Tools-Übersicht, nie mit Zugangsdaten im Browser.
+
+Das Stempeln selbst läuft **lokal im Browser** — das Dokument wird nicht zu
+einem fremden Dienst hochgeladen, um bestempelt zu werden.
 
 ---
 
